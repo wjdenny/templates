@@ -10,8 +10,8 @@ $font-size-base: 12pt;
 
 $color-base: #333436;
 $color-accent: #636E6E;
-$color-info: #4F849C;
-$color-warn: #9A2323;
+$color-info: rgba(#4F849C,0.10);
+$color-warn: rgba(#9A2323,0.10);
 
 body {
 	font-family: $font-family-base;
@@ -26,3 +26,15 @@ h3 { font-size: 140%; }
 h4 { font-size: 130%; }
 h5 { font-size: 120%; }
 h6 { font-size: 110%; }
+
+.mark-circle {
+	border: $color-info solid 1px; 
+	font-family: $font-family-base;
+	padding: 0.25em;
+	border-radius: 50%;
+}
+
+.mark-underline {
+	border-bottom: $color-info solid 1px; 
+	font-family: $font-family-base;
+}
