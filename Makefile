@@ -9,6 +9,11 @@ PANDOC_OPTIONS += --toc-depth=3
 PANDOC_OPTIONS += -V toctitle:"Table of contents" 
 PANDOC_OPTIONS += --template ./default.html
 
+SASS						= /usr/local/rvm/gems/ruby-2.4.1/bin/sass
+SASS_OPTIONS		= --scss
+
+SCSS_FILES			= $(filter-out prince.scss, $(shell find ./ -name '*.scss'))
+
 PRINCE          = /usr/bin/prince
 PRINCE_OPTIONS  = --style=./prince.css
 
@@ -22,8 +27,8 @@ style-guide.pdf: style-guide.html prince.css
 	$(PRINCE) $(PRINCE_OPTIONS) $< -o - | \
 	$(PDFJAM) $(PDFJAM_OPTIONS) /dev/stdin 1- -o $@
 
-prince.css: prince.scss pagination.scss headers.scss aside.scss typography.scss
-		sass $< $@
+prince.css: prince.scss $(SCSS_FILES) 
+		$(SASS) $(SASS_OPTIONS) $< $@
 
 .PHONY: all clean clean-dist dev-install
 all: style-guide.pdf
