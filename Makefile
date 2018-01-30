@@ -10,9 +10,7 @@ PANDOC_OPTIONS += -V toctitle:"Table of contents"
 PANDOC_OPTIONS += --template ./default.html
 
 PRINCE          = /usr/bin/prince
-PRINCE_OPTIONS  = --style=./headers.css
-PRINCE_OPTIONS += --style=./pagination.css
-PRINCE_OPTIONS += --style=./toc.css
+PRINCE_OPTIONS  = --style=./prince.css
 
 PDFJAM          = /usr/bin/pdfjam
 PDFJAM_OPTIONS  = --quiet
@@ -20,9 +18,12 @@ PDFJAM_OPTIONS  = --quiet
 style-guide.html: style-guide.md
 	$(PANDOC) $(PANDOC_OPTIONS) $< -o $@
 
-style-guide.pdf: style-guide.html
+style-guide.pdf: style-guide.html prince.css
 	$(PRINCE) $(PRINCE_OPTIONS) $< -o - | \
 	$(PDFJAM) $(PDFJAM_OPTIONS) /dev/stdin 1- -o $@
+
+prince.css: prince.scss pagination.scss headers.scss aside.scss typography.scss
+		sass $< $@
 
 .PHONY: all clean clean-dist dev-install
 all: style-guide.pdf

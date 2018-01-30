@@ -1,0 +1,13 @@
+@media print {
+	.aside {
+		page-break-inside: avoid;
+		border: #000 solid 1px;
+		float: outside; 
+		margin-outside: -1em;
+		padding: 0.5em;
+	}
+
+	.aside h5 {
+		margin: 0.5em;
+	}
+}
