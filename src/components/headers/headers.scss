@@ -1,0 +1,25 @@
+// I don't know how I can document this or make it more "modular" somehow, but, 
+// print the course code on the top left
+// print the title of the document on the top middle
+// print the semester on the top right
+// print the copyleft notice on the bottom left
+// print the page count on the bottom right
+
+@media print {
+    @page {
+	@top { content: string(title); }
+	@top-right { content: string(date); }
+	@top-left { content: string(course-code); }
+	@bottom-left { content: string(copyleft); }
+	@bottom-right { content: string(page) " / " string(pages); }
+    }
+
+    .title { string-set: title content(); }
+    .date { string-set: date content(); }
+    .course-code { string-set: course-code content() }
+    footer .copyleft { string-set: copyleft content(); }
+
+    footer, .author, .date, .title-block, .title, .subtitle { display: none; }
+
+    body { counter-reset: page 1; }
+}

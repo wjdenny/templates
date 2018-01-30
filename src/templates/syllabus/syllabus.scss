@@ -1,0 +1,28 @@
+body {
+    font-size: 12pt;
+    margin: 0.5in;
+}
+
+section {
+    orphans: 5;
+    page-break-inside: avoid;
+    widows: 5;
+    position: relative;
+    padding-left: 2in;
+}
+
+h2 {
+    font-size: 12pt;
+    font-weight: 700;
+    position: absolute;
+    margin-top: 0;
+    top: 0;
+    left: 0;
+    width: 1.75in;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    word-wrap: break-word;
+}

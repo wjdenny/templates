@@ -1,0 +1,226 @@
+$primary-color: #000;
+$input-color: #696969;
+
+.layout-exam {
+    table { 
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+       
+	tr {
+	    border-bottom: lighten($input-color,40%) solid 1px;
+	}
+
+	td:nth-child(n+2) { 
+	    border-top: lighten($input-color,40%) solid 1px;
+	    border-right: lighten($input-color,40%) dotted 1px;
+	    height: 2.5em;
+	    padding: 0.25em;
+	}
+
+	td:last-child {
+	    border-right: lighten($input-color,40%) solid 1px;
+
+	}
+    }
+}
+
+.page-landscape { page: landscape; }
+@page landscape { prince-rotate-body: -90deg; }
+
+.layout-lesson-plan {
+    table { width: 100% }
+    th { text-align: left; }
+
+    blockquote { 
+	font-style: italic;
+	margin-left: 2em;
+	border-left: #b0c4de solid 3px;
+	padding-left: 1em; 
+    }
+
+    blockquote em { font-style: normal; }
+
+    a { 
+	text-decoration: none;
+	font-style: normal;
+	font-weight: 700;
+	color: inherit;
+    }
+
+    a:after { 
+	content: " (" attr(href) ")";
+	font-weight: normal;
+	font-style: normal;
+    }
+}
+
+
+body { font-size: 12pt; }
+// h2 { font-size: 1em; }
+
+body.layout-notes {
+    line-height: 2.5em; 
+}
+
+// control orphans and widows
+.section, ul, ol {
+    orphans:		3;
+    widows:		3;
+    page-break-inside: 	avoid;
+}
+
+// document-wide item counting
+body { counter-reset: item; }
+
+%list-decoration {
+    color: $primary-color;
+    display: inline-block;
+    width: 1em;
+    margin-left: -2em;
+    text-align: right;
+    padding-right: 1em;
+    letter-spacing: normal;
+}
+
+.word-bank ul { 
+    list-style: none;
+    padding-top: 2em;
+    display: block;
+    li {
+	display: inline;
+	width: 10em; 
+	border: lighten($input-color,40%) solid 1px;
+	padding: 0.5em;
+    }
+}
+
+body.layout-exam {
+    ol {
+	list-style: none; 
+	
+	li::before {
+	    @extend %list-decoration;
+	    content: counter(item) ". ";
+	}
+
+	li { counter-increment: item; }
+    }
+}
+
+// example items
+.example-item > ul { list-style-type: none; }
+.example-item > ul li::before { 
+    content: "Ex. ";
+    @extend %list-decoration;
+}
+
+.example-item .example-cloze { 
+    font-family: cursive;
+    font-style: italic;
+    border-bottom: $input-color solid 1px;
+    padding: 0 1em;
+}
+
+// cloze elements, fill-in-the-blank, etc.
+.cloze {
+    color: rgba(0, 0, 0, 0);
+    border-bottom: $input-color solid 1px;
+    letter-spacing: 1em;
+}
+
+.inline-cloze {
+    @extend .cloze;
+    line-height: 2.5em;
+    padding-left: 1em;
+}
+
+.items { line-height: 2.5em; }
+
+.short-answer-items > ol li, .long-answer-items > ol li {
+    @extend .cloze;
+    letter-spacing: normal;
+    @extend .items;
+}
+
+.short-answer-items > ol li { 
+    max-width: 68%;
+    width: 20em;
+}
+
+.long-answer-items > ol li {
+    max-width: 100%;
+    width: 100%;
+}
+
+.long-answer-items > ul {
+    list-style-type: none;
+    margin-top: -1em;
+
+    li {
+	@extend .cloze;
+	@extend .items;
+	max-width: 100%;
+	width: 100%;
+	line-height: 2.5em;
+    }
+}
+
+.writing-lines > ul { 
+    list-style-type: none; 
+    margin: 0;
+    li { 
+	@extend .cloze; 
+	@extend .items; 
+    }
+}
+
+// space between sections
+section { 
+    margin-top: 2em;
+}
+
+// student name line
+@media print {
+    .student-name-line {
+	display: inline-block;
+	border-bottom: $input-color solid 1px;
+	width: 20em;
+	padding-left: 2em;
+    }
+}
+
+// hide print
+@media print { .hide-print { display: none; } }
+
+// page geometry
+@media print { 
+    @page {
+	size: letter;
+	margin: 1in;
+    }
+}
+
+// headers
+@media print {
+    @page {
+	@top { content: string(title); }
+	@top-right { content: string(date); }
+	@top-left { content: "ESI-018-ICF01"; }
+    }
+
+    .title { string-set: title content(); }
+    .date { string-set: date content(); }
+
+    .author, .date, .title-block, .title, .subtitle { display: none; }
+}
+
+@media screen { 
+    .title, .date { 
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: 700;
+    }
+
+    .student-name { display: none; }
+}

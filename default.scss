@@ -1,0 +1,8 @@
+@import "_variables.scss";
+
+section { 
+	margin-top: 2em;
+}
+
+@media print { @page { size: letter; margin: 1in; } }
+

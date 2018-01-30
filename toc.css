@@ -1,0 +1,24 @@
+@media print {
+	#TOC ul { 
+		list-style: none; 
+		padding-left: 0; 
+	}
+
+	#TOC ul ul { 
+		list-style: none; 
+		padding-left: 1em; 
+	}
+
+	#TOC > ul li:nth-child(n+2) { 
+		padding-top: 0.5em; 
+	} 
+
+	#TOC a {
+		text-decoration: none; 
+		color: inherit;
+	}
+
+	#TOC h2 { 
+		text-align: center; 
+	}
+}
