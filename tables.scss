@@ -5,3 +5,11 @@ table {
 		border-bottom: $color-accent solid 1px;
 	}
 }
+
+.aside table td { min-width: 3em; }
+
+.gloss table {
+	width: inherit;
+
+	td { padding-right: 1em; }
+}

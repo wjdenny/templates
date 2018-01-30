@@ -1,5 +1,21 @@
-.cloze-md {
+.cloze-sm, .cloze-md, .cloze-lg {
 	color: rgba($color-base, 0);
-	width: 10em;
-	border-bottom: rgba($color-info, 1) solid 1px;
+	border-bottom: $color-accent solid 1px;
+	display: inline-block;
+	line-height: 2em;
+}
+
+.cloze-example { 
+	color: $color-base;
+	text-align: center;
+	font-family: $font-family-handwriting;
+	font-weight: 700;
+}
+
+.cloze-sm { width: 5em; }
+.cloze-md { width: 10em; }
+.cloze-lg { width: 20em; }
+
+.writing-space-above li {
+	padding-top: 2em;
 }

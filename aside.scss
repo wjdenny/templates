@@ -1,15 +1,35 @@
-.aside {
-	page-break-inside: avoid;
+%callout {
 	border: $color-accent solid 1px;
-	background-color: $color-info;
+	background-color: rgba($color-info, 0.10);
+	page-break-inside: avoid;
+	padding: 0.5em;
+}
+
+.aside {
 	float: outside; 
 	margin-outside: -1em;
 	margin-inside: 1em;
-	padding: 0.5em;
+	min-width: 40%;
+	max-width: 40%;
+	display: inline-block;
 
 	h5, h6 {
 		margin: 0;
 		margin-bottom: 1em;
+	}
+}
+
+.info {
+	@extend %callout;
+	margin: 0 auto;
+	display:block;
+	width: 100%;
+
+	h5, h6 { text-align: center; }
+	table { margin: 0 auto; width: 62%; }
+
+	h5:first-of-type {
+		margin: 0 0 1em 0;
 	}
 }
 

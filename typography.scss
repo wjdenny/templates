@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Adamina');
 @import url('https://fonts.googleapis.com/css?family=Rasa');
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
+@import url('https://fonts.googleapis.com/css?family=Handlee');
 
 $font-family-base: 'Source Serif Pro', serif;
 $font-family-headers: 'Rasa', serif;
 $font-family-display: 'Adamina', serif;
+$font-family-handwriting: 'Handlee', cursive;
 
 $font-size-base: 12pt;
 
 $color-base: #333436;
 $color-accent: #636E6E;
-$color-info: rgba(#4F849C,0.10);
-$color-warn: rgba(#9A2323,0.10);
+$color-info: #4F849C;
+$color-warn: #9A2323;
 
 body {
 	font-family: $font-family-base;
 	font-size: $font-size-base;
+	color: $color-base;
 }
 
 h1, h2, h3, h4, h5, h6 { font-family: $font-family-headers; }
