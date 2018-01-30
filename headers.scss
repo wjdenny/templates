@@ -1,19 +1,17 @@
-@media print {
-	.cover-page {
-		page-break-after: always;
-		page: cover;
-	}
+.cover-page {
+	page-break-after: always;
+	page: cover;
+}
 
-	@page cover {
-		size: 8.5in 11in;
-		margin: 0;
-	}
+@page cover {
+	size: 8.5in 11in;
+	margin: 0;
+}
 
-	.cover {
-		width: 100%;
-		height: auto;
-		position: absolute;
-		bottom: 0;
-	}
+.cover {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	bottom: 0;
 }
 
