@@ -8,7 +8,7 @@ $font-family-headers: 'Rasa', serif;
 $font-family-display: 'Adamina', serif;
 $font-family-handwriting: 'Handlee', cursive;
 
-$font-size-base: 12pt;
+$font-size-base: 14pt;
 
 $color-base: #333436;
 $color-accent: #636E6E;
@@ -19,6 +19,7 @@ body {
 	font-family: $font-family-base;
 	font-size: $font-size-base;
 	color: $color-base;
+	line-height: 1.2em;
 }
 
 h1, h2, h3, h4, h5, h6 { font-family: $font-family-headers; }
